@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>can.Table</title>
+		
+		<!-- Bootstrap -->
+		<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+					<h1>can.Table</h1>
+				</div>
+				<p>Plugin para gestionar tablas.</p>
+				<div id="myTable">
+				</div>
+			</div>
+		</div>
+	</body>
+	<style>
+		th.sorteable i.sort {
+			color: #337ab7;
+			float: right !important;
+			cursor: pointer;
+		}
+	</style>
+	<script id="tableView" type="text/mustache">
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="sorteable" sort-attr="id">#</th>
+					<th class="sorteable" sort-attr="nombre">Nombre</th>
+					<th class="sorteable" sort-attr="apellido">Apellido</th>
+				</tr>
+			</thead>
+			<tbody>
+			{{#each .}}
+				<tr>
+					<td>{{id}}</td>
+					<td>{{nombre}}</td>
+					<td>{{apellido}}</td>
+				</tr>
+			{{/each .}}
+			</tbody>
+		</table>
+	</script>
+	<script id="paginationView" type="text/mustache">
+		<nav class="center-block">
+			<ul class="pagination">
+			{{#if page}}
+				<li>
+					<a class="link jump-first">
+						<<
+					</a>
+				</li>
+				<li>
+					<a class="link jump-previous">
+						<
+					</a>
+				</li>
+				{{#each page}}
+				<li>
+					<a jump-key="{{pageNumber}}" class="link jump-to">
+						{{pageNumber}}
+					</a>
+				</li>
+				{{/each}}
+				<li>
+					<a class="link jump-next">
+						>
+					</a>
+				</li>
+				<li >
+					<a class="link jump-last">
+						>>
+					</a>
+				</li>
+			{{/if}}
+			</ul>	
+			<form class="pagination form-inline" role="form" onsubmit="return false;">
+				<div class="form-group">
+					<label for="page">Ir a</label>
+					<input type="text" class="form-control" name="page" placeholder="1">
+				</div>
+				<div class="form-group">
+					<label for="limit">Articulos por Página</label>
+					<select class="form-control" name="limit">
+						<option>5</option>
+						<option>10</option>
+						<option>15</option>
+					</select>
+				</div>
+			</form>
+		</nav>
+	</script>
+	<script src='../bower_components/steal/steal.js' data-config="../demo/stealconfig" data-main='main'></script>
+</html>
