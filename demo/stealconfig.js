@@ -32,7 +32,7 @@
 				}
 			,	paths:
 				{
-					'jquery':			'../bower_components/jquery/dist/jquery.js'
+					'jquery':			'../bower_components/jquery/jquery.js'
 				,	'table':			'../table.js'
 				,	'pagination':		'../bower_components/can.pagination/pagination.js'
 				}
@@ -59,7 +59,7 @@
 System.buildConfig
 =	{
 		map:
-		{	
+		{
 			'can/util/util':	'can/util/domless/domless'
 		}
 	};

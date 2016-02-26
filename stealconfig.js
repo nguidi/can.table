@@ -32,7 +32,7 @@
 				}
 			,	paths:
 				{
-					'jquery':			'bower_components/jquery/dist/jquery.js'
+					'jquery':			'bower_components/jquery/jquery.js'
 				}
 			,	meta:
 				{
@@ -61,7 +61,7 @@
 System.buildConfig
 =	{
 		map:
-		{	
+		{
 			'can/util/util':	'can/util/domless/domless'
 		}
 	};
